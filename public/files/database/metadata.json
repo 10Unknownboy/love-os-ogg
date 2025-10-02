@@ -1,33 +1,33 @@
 {
   "songs": [
     {
-      "title": "qwqwqq",
-      "artist": "wq",
+      "title": "p",
+      "artist": "opo",
       "filename": "song1.mp3"
     },
     {
-      "title": "wq",
-      "artist": "w",
+      "title": "p",
+      "artist": "opo",
       "filename": "song2.mp3"
     },
     {
-      "title": "qw",
-      "artist": "q",
+      "title": "pop",
+      "artist": "op",
       "filename": "song3.mp3"
     },
     {
-      "title": "wq",
-      "artist": "wq",
+      "title": "op",
+      "artist": "o",
       "filename": "song4.mp3"
     },
     {
-      "title": "wq",
-      "artist": "wq",
+      "title": "po",
+      "artist": "p",
       "filename": "song5.mp3"
     },
     {
-      "title": "wq",
-      "artist": "wq",
+      "title": "op",
+      "artist": "op",
       "filename": "song6.mp3"
     },
     {
@@ -42,49 +42,49 @@
       "subtitle": "and counting... 💕",
       "icon": "📅",
       "type": "counter",
-      "value": "w"
+      "value": "op"
     },
     {
       "title": "Relationship Started",
       "subtitle": "best decision ever",
       "icon": "🌟",
       "type": "date",
-      "value": "qw"
+      "value": "op"
     },
     {
       "title": "First Date",
       "subtitle": "Christmas magic ✨",
       "icon": "🎄",
       "type": "date",
-      "value": "q"
+      "value": "o"
     },
     {
       "title": "First Kiss",
       "subtitle": "butterflies everywhere",
       "icon": "💋",
       "type": "location",
-      "value": "wq"
+      "value": "po"
     },
     {
       "title": "First Hug",
       "subtitle": "home in your arms",
       "icon": "🤗",
       "type": "location",
-      "value": "wq"
+      "value": "po"
     },
     {
       "title": "Best Day",
       "subtitle": "guess what happened... 😉",
       "icon": "🎉",
       "type": "date",
-      "value": "wq"
+      "value": "po"
     },
     {
       "title": "Most Used Word",
       "subtitle": "so stubborn! 😂",
       "icon": "💬",
       "type": "text",
-      "value": "w"
+      "value": "po"
     },
     {
       "title": "Total Messages",
@@ -92,7 +92,7 @@
       "icon": "📱",
       "type": "progress",
       "max": 700000,
-      "value": "qw"
+      "value": "po"
     },
     {
       "title": "Her Words",
@@ -100,7 +100,7 @@
       "icon": "👩‍💋‍👨",
       "type": "progress",
       "max": 40000,
-      "value": "qw"
+      "value": "po"
     },
     {
       "title": "His Words",
@@ -108,7 +108,7 @@
       "icon": "👨‍💋‍👩",
       "type": "progress",
       "max": 40000,
-      "value": "qwq"
+      "value": "po"
     },
     {
       "title": "Reels Shared",
@@ -116,7 +116,7 @@
       "icon": "🎬",
       "type": "progress",
       "max": 20000,
-      "value": "ww"
+      "value": "p"
     },
     {
       "title": "Love Count",
@@ -124,7 +124,7 @@
       "icon": "❤️",
       "type": "progress",
       "max": 15000,
-      "value": "wqwq"
+      "value": "opo"
     }
   ]
 }
