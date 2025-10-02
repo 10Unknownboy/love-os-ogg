@@ -18,14 +18,15 @@ const MusicCardGallery: React.FC = () => {
         }
         return res.json();
       })
-      .then((data: SongMetadata[]) => {
-        const memories = data
-          .map((item, index) => ({
+      .then(data => {
+        if (!data.songs || !Array.isArray(data.songs)) throw new Error('Songs data missing or invalid');
+        const memories = data.songs
+          .map((item: SongMetadata, index: number) => ({
             ...item,
             image: `/files/database/images/memory${index + 1}.jpg`,
             localAudioSrc: `/files/database/songs/${item.filename}`,
           }))
-          .filter(mem => mem.title.trim() !== '' || mem.artist.trim() !== ''); // filter out empty cards
+          .filter((mem: SongMetadata) => mem.title.trim() !== '' || mem.artist.trim() !== '');
         setMusicMemories(memories);
       })
       .catch(err => {
