@@ -1,46 +1,39 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import EnhancedMusicCard from './EnhancedMusicCard';
 
+interface SongMetadata {
+  title: string;
+  artist: string;
+  filename: string;
+}
+
 const MusicCardGallery: React.FC = () => {
-  const musicMemories = [
-    {
-      image: '/files/database/images/memory1.jpg',
-      title: 'Song',
-      artist: 'Artist',
-      localAudioSrc: '/files/database/songs/song1.mp3'
-    },
-    {
-      image: '/files/database/images/memory2.jpg',
-      title: 'Song',
-      artist: 'Artist',
-      localAudioSrc: '/files/database/songs/song2.mp3'
-    },
-    {
-      image: '/files/database/images/memory3.jpg',
-      title: 'Song',
-      artist: 'Artist',
-      localAudioSrc: '/files/database/songs/song3.mp3'
-    },
-    {
-      image: '/files/database/images/memory4.jpg',
-      title: 'Song',
-      artist: 'Artist',
-      localAudioSrc: '/files/database/songs/song4.mp3'
-    },
-    {
-      image: '/files/database/images/memory5.jpg',
-      title: 'Song',
-      artist: 'Artist',
-      localAudioSrc: '/files/database/songs/song5.mp3'
-    },
-    {
-      image: '/files/database/images/memory6.jpg',
-      title: 'Song',
-      artist: 'Artist',
-      localAudioSrc: '/files/database/songs/song6.mp3'
-    }
-  ];
+  const [musicMemories, setMusicMemories] = useState<SongMetadata[]>([]);
+
+  useEffect(() => {
+    // Fetch the metadata JSON on component mount
+    fetch('/src/components/metadata.json')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`Failed to fetch metadata: ${res.statusText}`);
+        }
+        return res.json();
+      })
+      .then((data: SongMetadata[]) => {
+        // Map metadata to include image and audio src
+        const memories = data.map((item, index) => ({
+          ...item,
+          image: `/files/database/images/memory${index + 1}.jpg`,
+          localAudioSrc: `/files/database/songs/${item.filename}`,
+        }));
+        setMusicMemories(memories);
+      })
+      .catch(err => {
+        console.error('Error loading metadata:', err);
+        // Fallback or empty data
+        setMusicMemories([]);
+      });
+  }, []);
 
   return (
     <div className="py-16 px-6">
@@ -55,16 +48,22 @@ const MusicCardGallery: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-          {musicMemories.map((memory, index) => (
-            <EnhancedMusicCard
-              key={index}
-              image={memory.image}
-              title={memory.title}
-              artist={memory.artist}
-              localAudioSrc={memory.localAudioSrc}
-              index={index}
-            />
-          ))}
+          {musicMemories.length > 0 ? (
+            musicMemories.map((memory, index) => (
+              <EnhancedMusicCard
+                key={index}
+                image={memory.image}
+                title={memory.title}
+                artist={memory.artist}
+                localAudioSrc={memory.localAudioSrc}
+                index={index}
+              />
+            ))
+          ) : (
+            <p className="col-span-full text-center text-gray-500">
+              Loading music memories...
+            </p>
+          )}
         </div>
 
         <div className="text-center mt-12">
