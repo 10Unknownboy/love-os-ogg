@@ -11,7 +11,7 @@ const MusicCardGallery: React.FC = () => {
   const [musicMemories, setMusicMemories] = useState<(SongMetadata & { image: string; localAudioSrc: string })[]>([]);
 
   useEffect(() => {
-    fetch('/src/components/metadata.json')
+    fetch('/files/database/metadata.json')
       .then(res => {
         if (!res.ok) {
           throw new Error(`Failed to fetch metadata: ${res.statusText}`);
