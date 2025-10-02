@@ -1,0 +1,130 @@
+{
+  "songs": [
+    {
+      "title": "fdfd",
+      "artist": "gy",
+      "filename": "song1.mp3"
+    },
+    {
+      "title": "",
+      "artist": "yuy",
+      "filename": "song2.mp3"
+    },
+    {
+      "title": "uy",
+      "artist": "uy",
+      "filename": "song3.mp3"
+    },
+    {
+      "title": "uyu",
+      "artist": "yuy",
+      "filename": "song4.mp3"
+    },
+    {
+      "title": "uy",
+      "artist": "uy",
+      "filename": "song5.mp3"
+    },
+    {
+      "title": "uy",
+      "artist": "uy",
+      "filename": "song6.mp3"
+    },
+    {
+      "title": "",
+      "artist": "",
+      "filename": "song7.mp3"
+    }
+  ],
+  "stats": [
+    {
+      "title": "Days Together",
+      "subtitle": "and counting... 💕",
+      "icon": "📅",
+      "type": "counter",
+      "value": "uy"
+    },
+    {
+      "title": "Relationship Started",
+      "subtitle": "best decision ever",
+      "icon": "🌟",
+      "type": "date",
+      "value": "uy"
+    },
+    {
+      "title": "First Date",
+      "subtitle": "Christmas magic ✨",
+      "icon": "🎄",
+      "type": "date",
+      "value": "uy"
+    },
+    {
+      "title": "First Kiss",
+      "subtitle": "butterflies everywhere",
+      "icon": "💋",
+      "type": "location",
+      "value": "uy"
+    },
+    {
+      "title": "First Hug",
+      "subtitle": "home in your arms",
+      "icon": "🤗",
+      "type": "location",
+      "value": "u"
+    },
+    {
+      "title": "Best Day",
+      "subtitle": "guess what happened... 😉",
+      "icon": "🎉",
+      "type": "date",
+      "value": "yu"
+    },
+    {
+      "title": "Most Used Word",
+      "subtitle": "so stubborn! 😂",
+      "icon": "💬",
+      "type": "text",
+      "value": "yu"
+    },
+    {
+      "title": "Total Messages",
+      "subtitle": "never running out of words",
+      "icon": "📱",
+      "type": "progress",
+      "max": 700000,
+      "value": "yu"
+    },
+    {
+      "title": "Her Words",
+      "subtitle": "always has more to say 💖",
+      "icon": "👩‍💋‍👨",
+      "type": "progress",
+      "max": 40000,
+      "value": "yu"
+    },
+    {
+      "title": "His Words",
+      "subtitle": "quality over quantity 😎",
+      "icon": "👨‍💋‍👩",
+      "type": "progress",
+      "max": 40000,
+      "value": "yu"
+    },
+    {
+      "title": "Reels Shared",
+      "subtitle": "sharing laughs daily",
+      "icon": "🎬",
+      "type": "progress",
+      "max": 20000,
+      "value": "y"
+    },
+    {
+      "title": "Love Count",
+      "subtitle": "never enough I love yous",
+      "icon": "❤️",
+      "type": "progress",
+      "max": 15000,
+      "value": "uy"
+    }
+  ]
+}
