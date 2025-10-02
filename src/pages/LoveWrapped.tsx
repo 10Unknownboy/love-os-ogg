@@ -6,7 +6,26 @@ import MusicCardGallery from '../components/MusicCardGallery';
 const LoveWrapped: React.FC = () => {
   const navigate = useNavigate();
   const [showMemories, setShowMemories] = useState(false);
-  const [relationshipStats, setRelationshipStats] = useState<any[]>([]);
+  const [relationshipStats, setRelationshipStats] = useState<any[]>([
+    { title: "Days Together", value: "xyz", subtitle: "and counting... 💕", icon: "📅", type: "counter" },
+    { title: "Relationship Started", value: "zz yyy 20xx", subtitle: "best decision ever", icon: "🌟", type: "date" },
+    { title: "First Date", value: "xxyyzzzz", subtitle: "Christmas magic ✨", icon: "🎄", type: "date" },
+    { title: "First Kiss", value: "xyz", subtitle: "butterflies everywhere", icon: "💋", type: "location" },
+    { title: "First Hug", value: "xyz", subtitle: "home in your arms", icon: "🤗", type: "location" },
+    { title: "Best Day", value: "xx yy zzzz", subtitle: "guess what happened... 😉", icon: "🎉", type: "date" },
+    { title: "Most Used Word", value: "xyz", subtitle: "so stubborn! 😂", icon: "💬", type: "text" },
+    { title: "Total Messages", value: "xyz", subtitle: "never running out of words", icon: "📱", type: "progress", max: 700000 },
+    { title: "Her Words", value: "xyz", subtitle: "always has more to say 💖", icon: "👩‍💋‍👨", type: "progress", max: 40000 },
+    { title: "His Words", value: "xyz", subtitle: "quality over quantity 😎", icon: "👨‍💋‍👩", type: "progress", max: 40000 },
+    { title: "Reels Shared", value: "xyz", subtitle: "sharing laughs daily", icon: "🎬", type: "progress", max: 20000 },
+    { title: "Love Count", value: "xyz", subtitle: "never enough I love yous", icon: "❤️", type: "progress", max: 15000 },
+    { title: "I Love You Count", value: "xyz", subtitle: "the perfect number 😏", icon: "💘", type: "counter" },
+    { title: "Busiest Day", value: "xyz", subtitle: "starting weeks with love", icon: "📆", type: "text" },
+    { title: "Longest Call", value: "xyz", subtitle: "time flies when you're happy", icon: "📞", type: "counter" },
+    { title: "Total Calls", value: "xyz", subtitle: "hearing your voice daily", icon: "☎️", type: "progress", max: 500 },
+    { title: "Emojis Sent", value: "xyz", subtitle: "expressing love in pixels", icon: "😍", type: "progress", max: 5000 },
+    { title: "Top Song", value: "xyz", subtitle: "xyz", icon: "🎵", type: "text" }
+  ]);
 
   useEffect(() => {
     fetch('/files/database/metadata.json')
@@ -29,7 +48,7 @@ const LoveWrapped: React.FC = () => {
   const renderStatCard = (stat: any, index: number) => {
     const isProgress = stat.type === 'progress';
     const isCounter = stat.type === 'counter';
-
+    
     return (
       <div
         key={index}
@@ -42,16 +61,16 @@ const LoveWrapped: React.FC = () => {
         <h3 className="text-xl font-bold text-gray-700 mb-2">
           {stat.title}
         </h3>
-
+        
         {isProgress ? (
           <div className="mb-4">
             <p className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent mb-2">
               {stat.value}
             </p>
             <div className="w-full bg-pink-100 rounded-full h-3 mb-2">
-              <div
+              <div 
                 className="bg-gradient-to-r from-pink-500 to-rose-500 h-3 rounded-full transition-all duration-1000 ease-out"
-                style={{
+                style={{ 
                   width: `${getProgressPercentage(stat.value, stat.max)}%`,
                   animationDelay: `${index * 0.2}s`
                 }}
@@ -72,7 +91,7 @@ const LoveWrapped: React.FC = () => {
             {stat.value}
           </p>
         )}
-
+        
         <p className="text-gray-600 text-sm italic">
           {stat.subtitle}
         </p>
@@ -80,19 +99,16 @@ const LoveWrapped: React.FC = () => {
     );
   };
 
-  // MemoriesSection definition omitted for brevity. Include from your original code.
+  // Your original MemoriesSection component should be placed here as it was in your original code.
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 via-lavender-50 to-rose-100 overflow-x-hidden">
-      {/* Header section omitted for brevity */}
+      {/* Your original header JSX code should be here */}
 
-      {/* MusicCards */}
       <MusicCardGallery />
 
-      {/* Memories Heart Button */}
-      {/* Existing memories button code */}
+      {/* Your original Memories Heart Button JSX should be here */}
 
-      {/* Stats Dashboard section */}
       <div className="max-w-7xl mx-auto px-6 pb-16">
         <div className="text-center mb-12">
           <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
@@ -111,7 +127,7 @@ const LoveWrapped: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer and memories modal as in your original code */}
+      {/* Your original footer JSX and memories modal */}
     </div>
   );
 };
