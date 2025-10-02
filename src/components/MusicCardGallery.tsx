@@ -19,12 +19,13 @@ const MusicCardGallery: React.FC = () => {
         return res.json();
       })
       .then((data: SongMetadata[]) => {
-        // Map metadata starting from memory1.jpg (skip collage.jpg which is at image 0)
-        const memories = data.map((item, index) => ({
-          ...item,
-          image: `/files/database/images/memory${index + 1}.jpg`, // Starts at memory1.jpg for index 0
-          localAudioSrc: `/files/database/songs/${item.filename}`,
-        }));
+        const memories = data
+          .map((item, index) => ({
+            ...item,
+            image: `/files/database/images/memory${index + 1}.jpg`,
+            localAudioSrc: `/files/database/songs/${item.filename}`,
+          }))
+          .filter(mem => mem.title.trim() !== '' || mem.artist.trim() !== ''); // filter out empty cards
         setMusicMemories(memories);
       })
       .catch(err => {
@@ -40,9 +41,7 @@ const MusicCardGallery: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 bg-clip-text text-transparent mb-4">
             Memory Music Gallery 🎵
           </h2>
-          <p className="text-xl text-gray-700">
-            Flip the cards to play our favorite songs
-          </p>
+          <p className="text-xl text-gray-700">Flip the cards to play our favorite songs</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
@@ -58,9 +57,7 @@ const MusicCardGallery: React.FC = () => {
               />
             ))
           ) : (
-            <p className="col-span-full text-center text-gray-500">
-              Loading music memories...
-            </p>
+            <p className="col-span-full text-center text-gray-500">Loading music memories...</p>
           )}
         </div>
 
