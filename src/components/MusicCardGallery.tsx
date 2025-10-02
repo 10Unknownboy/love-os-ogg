@@ -8,10 +8,9 @@ interface SongMetadata {
 }
 
 const MusicCardGallery: React.FC = () => {
-  const [musicMemories, setMusicMemories] = useState<SongMetadata[]>([]);
+  const [musicMemories, setMusicMemories] = useState<(SongMetadata & { image: string; localAudioSrc: string })[]>([]);
 
   useEffect(() => {
-    // Fetch the metadata JSON on component mount
     fetch('/src/components/metadata.json')
       .then(res => {
         if (!res.ok) {
@@ -20,17 +19,16 @@ const MusicCardGallery: React.FC = () => {
         return res.json();
       })
       .then((data: SongMetadata[]) => {
-        // Map metadata to include image and audio src
+        // Map metadata starting from memory1.jpg (skip collage.jpg which is at image 0)
         const memories = data.map((item, index) => ({
           ...item,
-          image: `/files/database/images/memory${index + 1}.jpg`,
+          image: `/files/database/images/memory${index + 1}.jpg`, // Starts at memory1.jpg for index 0
           localAudioSrc: `/files/database/songs/${item.filename}`,
         }));
         setMusicMemories(memories);
       })
       .catch(err => {
         console.error('Error loading metadata:', err);
-        // Fallback or empty data
         setMusicMemories([]);
       });
   }, []);
