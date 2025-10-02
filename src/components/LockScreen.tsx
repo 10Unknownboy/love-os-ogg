@@ -24,7 +24,7 @@ const LockScreen: React.FC<LockScreenProps> = ({ onUnlock }) => {
         const transcript = event.results[current][0].transcript.toLowerCase().trim();
         setTranscript(transcript);
         
-        if (transcript.includes('i love you')) {
+        if (transcript.includes('open')) {
           setIsListening(false);
           recognition.stop();
           setTimeout(() => {
