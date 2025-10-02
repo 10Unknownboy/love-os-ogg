@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Heart, TrendingUp, MessageSquare, Phone, Calendar, Clock, X } from 'lucide-react';
 import MusicCardGallery from '../components/MusicCardGallery';
@@ -6,7 +6,8 @@ import MusicCardGallery from '../components/MusicCardGallery';
 const LoveWrapped: React.FC = () => {
   const navigate = useNavigate();
   const [showMemories, setShowMemories] = useState(false);
-    const [relationshipStats, setRelationshipStats] = useState<any[]>([
+
+  const [relationshipStats, setRelationshipStats] = useState<any[]>([
     { title: "Days Together", value: "xyz", subtitle: "and counting... 💕", icon: "📅", type: "counter" },
     { title: "Relationship Started", value: "zz yyy 20xx", subtitle: "best decision ever", icon: "🌟", type: "date" },
     { title: "First Date", value: "xxyyzzzz", subtitle: "Christmas magic ✨", icon: "🎄", type: "date" },
@@ -40,7 +41,6 @@ const LoveWrapped: React.FC = () => {
       });
   }, []);
 
-
   const getProgressPercentage = (value: string, max: number) => {
     const numValue = parseInt(value.replace(/,/g, ''));
     return Math.min((numValue / max) * 100, 100);
@@ -49,7 +49,7 @@ const LoveWrapped: React.FC = () => {
   const renderStatCard = (stat: any, index: number) => {
     const isProgress = stat.type === 'progress';
     const isCounter = stat.type === 'counter';
-    
+
     return (
       <div
         key={index}
@@ -62,16 +62,16 @@ const LoveWrapped: React.FC = () => {
         <h3 className="text-xl font-bold text-gray-700 mb-2">
           {stat.title}
         </h3>
-        
+
         {isProgress ? (
           <div className="mb-4">
             <p className="text-3xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent mb-2">
               {stat.value}
             </p>
             <div className="w-full bg-pink-100 rounded-full h-3 mb-2">
-              <div 
+              <div
                 className="bg-gradient-to-r from-pink-500 to-rose-500 h-3 rounded-full transition-all duration-1000 ease-out"
-                style={{ 
+                style={{
                   width: `${getProgressPercentage(stat.value, stat.max)}%`,
                   animationDelay: `${index * 0.2}s`
                 }}
@@ -92,7 +92,7 @@ const LoveWrapped: React.FC = () => {
             {stat.value}
           </p>
         )}
-        
+
         <p className="text-gray-600 text-sm italic">
           {stat.subtitle}
         </p>
@@ -138,7 +138,7 @@ const LoveWrapped: React.FC = () => {
             className="w-full h-full object-cover rounded-3xl shadow-2xl animate-fade-in-up"
             style={{ animationDelay: '0.3s' }}
           />
-          
+
           {/* Memory Caption */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-8 rounded-b-3xl">
             <h3 className="text-4xl font-bold text-white mb-2 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
