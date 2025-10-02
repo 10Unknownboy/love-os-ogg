@@ -13,13 +13,11 @@ const MusicCardGallery: React.FC = () => {
   useEffect(() => {
     fetch('/files/database/metadata.json')
       .then(res => {
-        if (!res.ok) {
-          throw new Error(`Failed to fetch metadata: ${res.statusText}`);
-        }
+        if (!res.ok) throw new Error(`Failed to fetch metadata: ${res.statusText}`);
         return res.json();
       })
       .then(data => {
-        if (!data.songs || !Array.isArray(data.songs)) throw new Error('Songs data missing or invalid');
+        if (!data.songs || !Array.isArray(data.songs)) throw new Error('Missing songs array');
         const memories = data.songs
           .map((item: SongMetadata, index: number) => ({
             ...item,
@@ -63,9 +61,7 @@ const MusicCardGallery: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 text-lg">
-            Each card holds a special memory with its soundtrack 💕
-          </p>
+          <p className="text-gray-600 text-lg">Each card holds a special memory with its soundtrack 💕</p>
         </div>
       </div>
     </div>
