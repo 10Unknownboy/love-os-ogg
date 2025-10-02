@@ -7,6 +7,8 @@ const LoveWrapped: React.FC = () => {
   const navigate = useNavigate();
   const [showMemories, setShowMemories] = useState(false);
 
+  const [daysTogether, setDaysTogether] = useState<string>('xyz');
+
   const [relationshipStats, setRelationshipStats] = useState<any[]>([
     { title: "Days Together", value: "xyz", subtitle: "and counting... 💕", icon: "📅", type: "counter" },
     { title: "Relationship Started", value: "zz yyy 20xx", subtitle: "best decision ever", icon: "🌟", type: "date" },
@@ -34,10 +36,13 @@ const LoveWrapped: React.FC = () => {
       .then(data => {
         if (data.stats && Array.isArray(data.stats)) {
           setRelationshipStats(data.stats);
+          const days = data.stats.find((stat: any) => stat.title === 'Days Together');
+          if (days && days.value) setDaysTogether(days.value);
         }
       })
       .catch(err => {
         console.error('Error loading stats metadata:', err);
+        console.error('Failed to load days together value:', err);
       });
   }, []);
 
@@ -180,7 +185,7 @@ const LoveWrapped: React.FC = () => {
             Your Love Story
           </h2>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            xyz days of magic, laughter, and endless love 💕
+            {daysTogether} days of magic, laughter, and endless love 💕
           </p>
           <div className="flex justify-center items-center space-x-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <div className="w-24 h-24 bg-gradient-to-br from-pink-400 to-rose-500 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg animate-pulse">
